@@ -1,14 +1,4 @@
-export function SectionHeading({
-  label,
-  title,
-  underline = false,
-  align = "center",
-}: {
-  label: string;
-  title?: string;
-  underline?: boolean;
-  align?: "center" | "left";
-}) {
+export function SectionHeading({ label, title, underline = false, align = "center" }) {
   return (
     <div className={align === "center" ? "text-center" : "text-left"}>
       <p className="text-[11px] font-semibold tracking-[0.2em] text-primary uppercase">{label}</p>

@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Box } from "lucide-react";
 
-export function Logo({ dark = false }: { dark?: boolean }) {
+export function Logo({ dark = false }) {
   return (
     <Link to="/" className="flex items-center gap-2.5">
       <Box className="size-8 shrink-0 text-primary" strokeWidth={1.4} />
