@@ -19,28 +19,28 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-cream/95 backdrop-blur">
-      <div className="container-page grid h-[74px] grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
-        <div className="min-w-0">
+      <div className="container-page flex h-[76px] flex-nowrap items-center justify-between gap-6">
+        <div className="min-w-0 shrink-0">
           <Logo />
         </div>
 
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav className="hidden min-w-0 flex-nowrap items-center gap-5 lg:flex xl:gap-7">
           {links.map((link) => (
             <Link
               key={link.to}
               to={link.to}
               activeOptions={{ exact: link.to === "/" }}
-              className="relative pb-1 text-[13px] font-medium text-muted-foreground transition-colors hover:text-ink data-[status=active]:text-ink data-[status=active]:after:absolute data-[status=active]:after:inset-x-0 data-[status=active]:after:-bottom-0.5 data-[status=active]:after:h-[2px] data-[status=active]:after:rounded-full data-[status=active]:after:bg-primary"
+              className="relative pb-1 text-[13px] font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-ink data-[status=active]:text-ink data-[status=active]:after:absolute data-[status=active]:after:inset-x-0 data-[status=active]:after:-bottom-0.5 data-[status=active]:after:h-[2px] data-[status=active]:after:rounded-full data-[status=active]:after:bg-primary"
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           <Link
             to="/contact"
-            className="group hidden items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-[13px] font-semibold text-primary-foreground transition-colors hover:bg-primary-dark sm:inline-flex"
+            className="group hidden items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-[13px] font-semibold whitespace-nowrap text-primary-foreground transition-colors hover:bg-primary-dark lg:inline-flex"
           >
             Get A Quote
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />

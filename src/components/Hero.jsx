@@ -6,13 +6,26 @@ import { Benefits } from "./Benefits";
 
 export function Hero() {
   return (
-    <section className="border-b border-border bg-cream">
-      <div className="container-page grid items-center gap-10 pt-12 pb-8 lg:grid-cols-[1fr_1.05fr] lg:gap-6 lg:pt-16">
-        <div>
+    <section className="relative overflow-hidden border-b border-border bg-cream">
+      {/* Integrated hero visual: fills the right half on desktop */}
+      <div className="pointer-events-none absolute top-0 right-0 bottom-[104px] hidden w-[52%] lg:block">
+        <img
+          src={heroBox}
+          alt="Premium V'RAP kraft cardboard box on a marble platform with green leaves"
+          width={1200}
+          height={1008}
+          className="h-full w-full object-cover object-[center_top]"
+        />
+        <span className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-cream to-transparent" />
+      </div>
+
+      <div className="container-page relative z-10 flex min-h-[420px] flex-col justify-center py-10 lg:min-h-[476px] lg:py-12">
+        <div className="lg:w-[50%]">
           <p className="text-[11px] font-semibold tracking-[0.18em] text-primary uppercase">
             Custom boxes. Unforgettable impressions.
           </p>
-          <h1 className="mt-4 text-[34px] leading-[1.08] font-extrabold tracking-tight text-ink sm:text-5xl lg:text-[54px]">
+          <h1 className="mt-4 text-[32px] leading-[1.02] font-extrabold tracking-tight text-ink sm:text-[42px] lg:text-[50px] xl:text-[56px]">
+
             Packaging That
             <br />
             Makes People
@@ -41,18 +54,26 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="-mx-5 lg:mx-0">
+        {/* Mobile / tablet visual */}
+        <div className="-mx-5 mt-8 lg:hidden">
           <img
             src={heroBox}
             alt="Premium V'RAP kraft cardboard box on a marble platform with green leaves"
             width={1200}
             height={1008}
-            className="h-full w-full object-cover lg:rounded-l-3xl"
+            className="h-[240px] w-full object-cover sm:h-[320px]"
           />
+        </div>
+
+      </div>
+
+      <div className="relative z-10 bg-cream">
+        <div className="container-page py-6">
+          <Benefits />
         </div>
       </div>
 
-      <Benefits />
+
     </section>
   );
 }
