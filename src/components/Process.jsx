@@ -23,7 +23,7 @@ export function Process() {
             {steps.map(({ n, icon: Icon, title, text }, i) => (
               <Reveal key={n} delay={i * 80}>
                 <div className="relative flex flex-col items-center text-center">
-                  <span className="grid size-7 place-items-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
+                  <span className="relative z-10 grid size-7 place-items-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
                     {n}
                   </span>
                   <span className="-mt-3.5 grid size-[54px] place-items-center rounded-full border border-border bg-card shadow-card">
