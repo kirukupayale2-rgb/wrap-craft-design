@@ -52,7 +52,7 @@ export function Portfolio() {
           ))}
         </div>
 
-        <div className="-mt-6 flex justify-center md:-mt-7">
+        <div className="relative z-10 -mt-6 flex justify-center md:-mt-7">
           <Link
             to="/our-work"
             className="group inline-flex items-center gap-2 rounded-lg border border-border bg-card px-5 py-3 text-[13px] font-semibold text-ink shadow-card transition-colors hover:border-primary"
