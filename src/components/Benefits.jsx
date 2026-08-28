@@ -9,14 +9,14 @@ const items = [
 
 export function Benefits() {
   return (
-    <div className="container-page grid grid-cols-2 gap-4 pt-6 pb-10 sm:gap-6 lg:grid-cols-4">
+    <div className="grid grid-cols-1 gap-4 border-t border-border/70 pt-5 min-[420px]:grid-cols-2 lg:grid-cols-4 lg:gap-6">
       {items.map(({ icon: Icon, title, text }) => (
         <div key={title} className="flex min-w-0 items-center gap-3">
-          <span className="grid size-9 shrink-0 place-items-center rounded-full border border-border">
-            <Icon className="size-4 text-ink" strokeWidth={1.6} />
+          <span className="grid size-9 shrink-0 place-items-center rounded-full border border-border bg-card/60">
+            <Icon className="size-4 text-primary" strokeWidth={1.6} />
           </span>
           <span className="min-w-0">
-            <span className="block truncate text-[12px] font-bold text-ink">{title}</span>
+            <span className="block truncate text-[12.5px] font-bold text-ink">{title}</span>
             <span className="block truncate text-[11px] text-muted-foreground">{text}</span>
           </span>
         </div>
