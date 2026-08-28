@@ -14,7 +14,7 @@ export function Hero() {
           alt="Premium V'RAP kraft cardboard box on a marble platform with green leaves"
           width={1200}
           height={1008}
-          className="h-full w-full object-cover object-center"
+          className="h-full w-full object-cover object-[center_top]"
         />
         <span className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-cream to-transparent" />
       </div>
