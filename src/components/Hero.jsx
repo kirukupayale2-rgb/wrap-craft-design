@@ -71,6 +71,8 @@ export function Hero() {
         <div className="container-page py-6">
           <Benefits />
         </div>
+      </div>
+
 
     </section>
   );
