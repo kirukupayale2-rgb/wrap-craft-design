@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 
@@ -18,6 +19,52 @@ const shots = [
 ];
 
 export function Portfolio() {
+  const trackRef = useRef(null);
+
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let raf;
+    let paused = false;
+    let direction = 1;
+
+    const tick = () => {
+      const max = el.scrollWidth - el.clientWidth;
+      if (max > 4 && !paused) {
+        if (el.scrollLeft >= max - 1) direction = -1;
+        else if (el.scrollLeft <= 0) direction = 1;
+        el.scrollLeft += 0.35 * direction;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+
+    const pause = () => {
+      paused = true;
+    };
+    const resume = () => {
+      paused = false;
+    };
+    el.addEventListener("pointerdown", pause);
+    el.addEventListener("pointerup", resume);
+    el.addEventListener("mouseenter", pause);
+    el.addEventListener("mouseleave", resume);
+    el.addEventListener("touchstart", pause, { passive: true });
+    el.addEventListener("touchend", resume);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      el.removeEventListener("pointerdown", pause);
+      el.removeEventListener("pointerup", resume);
+      el.removeEventListener("mouseenter", pause);
+      el.removeEventListener("mouseleave", resume);
+      el.removeEventListener("touchstart", pause);
+      el.removeEventListener("touchend", resume);
+    };
+  }, []);
+
   return (
     <section className="bg-card py-14 md:py-16">
       <div className="container-page">
@@ -25,11 +72,11 @@ export function Portfolio() {
       </div>
 
       <Reveal className="relative mt-10">
-        <div className="flex snap-x snap-mandatory gap-0 overflow-x-auto md:overflow-visible">
+        <div ref={trackRef} className="no-scrollbar flex gap-0 overflow-x-auto md:overflow-hidden">
           {shots.map((shot, i) => (
             <div
               key={shot.alt}
-              className="group relative h-[230px] w-[70%] shrink-0 snap-center overflow-hidden sm:h-[260px] md:h-[300px] md:w-auto md:flex-1"
+              className="group relative h-[230px] w-[70%] shrink-0 overflow-hidden sm:h-[260px] md:h-[300px] md:w-auto md:flex-1"
               style={{
                 clipPath:
                   i === 0
@@ -52,7 +99,7 @@ export function Portfolio() {
           ))}
         </div>
 
-        <div className="relative z-10 -mt-6 flex justify-center md:-mt-7">
+        <div className="relative z-10 mt-6 flex justify-center md:-mt-7">
           <Link
             to="/our-work"
             className="group inline-flex items-center gap-2 rounded-lg border border-border bg-card px-5 py-3 text-[13px] font-semibold text-ink shadow-card transition-colors hover:border-primary"

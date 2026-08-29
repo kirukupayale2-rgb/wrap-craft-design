@@ -17,9 +17,33 @@ export function Process() {
       <div className="container-page">
         <SectionHeading label="Our Process" title="From Idea To Shelf" />
 
-        <div className="relative mt-10">
-          <span className="absolute top-[70px] right-[10%] left-[10%] hidden h-px bg-border md:block" />
-          <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-5 md:gap-4">
+        {/* Mobile: compact left-aligned timeline cards */}
+        <div className="relative mt-8 md:hidden">
+          <span className="absolute top-4 bottom-4 left-[19px] w-px bg-border" />
+          <div className="space-y-3">
+            {steps.map(({ n, icon: Icon, title, text }, i) => (
+              <Reveal key={n} delay={i * 60}>
+                <div className="relative flex gap-4">
+                  <span className="relative z-10 mt-1 grid size-10 shrink-0 place-items-center rounded-full border border-border bg-card shadow-card">
+                    <Icon className="size-4 text-primary" strokeWidth={1.6} />
+                  </span>
+                  <div className="min-w-0 flex-1 rounded-xl border border-border bg-card px-4 py-3 shadow-card">
+                    <p className="flex items-center gap-2">
+                      <span className="text-[10px] font-bold tracking-widest text-primary">{n}</span>
+                      <span className="text-[13px] font-bold text-ink">{title}</span>
+                    </p>
+                    <p className="mt-1 text-[12px] leading-relaxed text-muted-foreground">{text}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop: horizontal timeline */}
+        <div className="relative mt-10 hidden md:block">
+          <span className="absolute top-[70px] right-[10%] left-[10%] h-px bg-border" />
+          <div className="grid grid-cols-5 gap-4">
             {steps.map(({ n, icon: Icon, title, text }, i) => (
               <Reveal key={n} delay={i * 80}>
                 <div className="relative flex flex-col items-center text-center">

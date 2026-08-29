@@ -1,10 +1,18 @@
 import { Link } from "@tanstack/react-router";
-import { Box } from "lucide-react";
+
+import logoAsset from "@/assets/vrap-logo.png.asset.json";
 
 export function Logo({ dark = false }) {
   return (
     <Link to="/" className="flex items-center gap-2.5">
-      <Box className="size-8 shrink-0 text-primary" strokeWidth={1.4} />
+      <img
+        src={logoAsset.url}
+        alt="V'RAP custom packaging logo"
+        width={64}
+        height={64}
+        className="size-10 shrink-0 object-contain mix-blend-multiply"
+        style={dark ? { mixBlendMode: "normal" } : undefined}
+      />
       <span className="leading-none">
         <span
           className={`block text-xl font-extrabold tracking-tight ${dark ? "text-cream" : "text-ink"}`}

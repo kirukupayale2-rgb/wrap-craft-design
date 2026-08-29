@@ -2,7 +2,10 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 
-import { SectionHeading } from "@/components/SectionHeading";
+import { PageBanner } from "@/components/PageBanner";
+import { CTA } from "@/components/CTA";
+import banner from "@/assets/banner-contact.jpg";
+
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -24,11 +27,17 @@ function Contact() {
   const [sent, setSent] = useState(false);
 
   return (
-    <section className="bg-cream py-14 md:py-16">
+    <>
+      <PageBanner
+        label="Contact"
+        title="Get A Quote"
+        intro="Tell us about your product and we'll come back with structure, material and pricing options."
+        image={banner}
+      />
+      <section className="bg-cream py-14 md:py-16">
       <div className="container-page">
-        <SectionHeading label="Contact" title="Get A Quote" underline />
+        <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr]">
 
-        <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_1.2fr]">
           <ul className="space-y-5 text-[13px] text-muted-foreground">
             <li className="flex gap-3">
               <MapPin className="size-4 shrink-0 text-primary" />

@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { PageShell } from "@/components/PageShell";
-import { Industries as IndustriesSection } from "@/components/Industries";
+import { IndustryDetails } from "@/components/IndustryDetails";
+import banner from "@/assets/banner-industries.jpg";
 
 export const Route = createFileRoute("/industries")({
   head: () => ({
@@ -25,8 +26,9 @@ function IndustriesPage() {
       label="Designed For Every Industry"
       title="Packaging For Your Category"
       intro="Material, structure and finish tuned to how your product ships, sits and sells."
+      image={banner}
     >
-      <IndustriesSection />
+      <IndustryDetails />
     </PageShell>
   );
 }
