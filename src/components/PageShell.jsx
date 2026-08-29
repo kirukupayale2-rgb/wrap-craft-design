@@ -1,19 +1,10 @@
 import { CTA } from "./CTA";
-import { SectionHeading } from "./SectionHeading";
+import { PageBanner } from "./PageBanner";
 
-export function PageShell({ label, title, intro, children }) {
+export function PageShell({ label, title, intro, image, children }) {
   return (
     <>
-      <section className="bg-cream py-14 md:py-16">
-        <div className="container-page max-w-3xl text-center">
-          <SectionHeading label={label} title={title} underline />
-          {intro ? (
-            <p className="mx-auto mt-5 max-w-xl text-[13px] leading-relaxed text-muted-foreground">
-              {intro}
-            </p>
-          ) : null}
-        </div>
-      </section>
+      <PageBanner label={label} title={title} intro={intro} image={image} />
       {children}
       <CTA />
     </>
