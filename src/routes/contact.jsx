@@ -2,7 +2,10 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 
-import { SectionHeading } from "@/components/SectionHeading";
+import { PageBanner } from "@/components/PageBanner";
+import { CTA } from "@/components/CTA";
+import banner from "@/assets/banner-contact.jpg";
+
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
