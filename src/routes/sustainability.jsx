@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Leaf, Recycle, Sprout } from "lucide-react";
 
 import { PageShell } from "@/components/PageShell";
+import banner from "@/assets/banner-sustainability.jpg";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/sustainability")({
@@ -32,6 +33,7 @@ function Sustainability() {
       label="Sustainability"
       title="Better For The Planet"
       intro="Responsible packaging is not a premium add-on — it is how we build every box."
+      image={banner}
     >
       <section className="bg-cream pb-16">
         <div className="container-page grid gap-5 md:grid-cols-3">

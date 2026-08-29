@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { PageShell } from "@/components/PageShell";
+import banner from "@/assets/banner-work.jpg";
 import { Portfolio } from "@/components/Portfolio";
 
 export const Route = createFileRoute("/our-work")({
@@ -25,6 +26,7 @@ function OurWork() {
       label="Our Work"
       title="Packaging People Remember"
       intro="Selected packaging projects across food, beauty, retail and gifting."
+      image={banner}
     >
       <Portfolio />
     </PageShell>

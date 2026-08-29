@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { PageShell } from "@/components/PageShell";
+import banner from "@/assets/banner-about.jpg";
 import { Philosophy } from "@/components/Philosophy";
 import { Process } from "@/components/Process";
 
@@ -29,6 +30,7 @@ function About() {
       label="About Us"
       title="Crafted With Intent"
       intro="V'RAP is a custom packaging studio and manufacturer. From the first sketch to the final delivery, we build boxes that carry your brand story."
+      image={banner}
     >
       <Philosophy />
       <Process />

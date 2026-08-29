@@ -32,7 +32,7 @@ const industries = [
 
 export function Footer() {
   return (
-    <footer className="bg-ink pt-24 pb-6 text-cream/70">
+    <footer className="bg-ink pt-32 pb-6 text-cream/70">
       <div className="container-page grid gap-10 md:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-1">
           <Logo dark />

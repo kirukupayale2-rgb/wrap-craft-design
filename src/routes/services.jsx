@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { PageShell } from "@/components/PageShell";
+import banner from "@/assets/banner-services.jpg";
 import { Services as ServicesSection } from "@/components/Services";
 import { Process } from "@/components/Process";
 
@@ -26,6 +27,7 @@ function ServicesPage() {
       label="More Than Just A Box"
       title="We Create Experiences"
       intro="From concept to shelf, every service is built around your product and your brand."
+      image={banner}
     >
       <ServicesSection />
       <Process />
