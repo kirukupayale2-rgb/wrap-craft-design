@@ -13,7 +13,7 @@ export function PageBanner({ label, title, intro, image }) {
       ) : null}
       <span className="absolute inset-0 bg-ink/72" />
 
-      <div className="relative container-page py-16 text-center md:py-20">
+      <div className="relative container-page py-20 text-center md:py-28">
         <p className="text-[11px] font-semibold tracking-[0.2em] text-primary uppercase">{label}</p>
         <h1 className="mx-auto mt-3 max-w-3xl text-3xl font-extrabold tracking-tight text-cream sm:text-4xl md:text-[42px]">
           {title}
