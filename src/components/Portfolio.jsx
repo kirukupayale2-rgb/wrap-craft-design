@@ -18,6 +18,8 @@ const shots = [
   { src: work5, alt: "Kraft food packaging box" },
 ];
 
+const loop = [...shots, ...shots];
+
 export function Portfolio() {
   const trackRef = useRef(null);
 
@@ -28,14 +30,12 @@ export function Portfolio() {
 
     let raf;
     let paused = false;
-    let direction = 1;
 
     const tick = () => {
-      const max = el.scrollWidth - el.clientWidth;
-      if (max > 4 && !paused) {
-        if (el.scrollLeft >= max - 1) direction = -1;
-        else if (el.scrollLeft <= 0) direction = 1;
-        el.scrollLeft += 0.35 * direction;
+      const half = el.scrollWidth / 2;
+      if (!paused && half > 4) {
+        el.scrollLeft += 0.5;
+        if (el.scrollLeft >= half) el.scrollLeft -= half;
       }
       raf = requestAnimationFrame(tick);
     };
@@ -72,18 +72,13 @@ export function Portfolio() {
       </div>
 
       <Reveal className="relative mt-10">
-        <div ref={trackRef} className="no-scrollbar flex gap-0 overflow-x-auto md:overflow-hidden">
-          {shots.map((shot, i) => (
+        <div ref={trackRef} className="no-scrollbar flex gap-0 overflow-x-auto">
+          {loop.map((shot, i) => (
             <div
-              key={shot.alt}
-              className="group relative h-[230px] w-[70%] shrink-0 overflow-hidden sm:h-[260px] md:h-[300px] md:w-auto md:flex-1"
+              key={`${shot.alt}-${i}`}
+              className="group relative h-[340px] w-[82%] shrink-0 overflow-hidden sm:h-[360px] sm:w-[46%] md:h-[380px] md:w-[26%] xl:w-[20%]"
               style={{
-                clipPath:
-                  i === 0
-                    ? "polygon(0 0, 100% 0, calc(100% - 26px) 100%, 0 100%)"
-                    : i === shots.length - 1
-                      ? "polygon(26px 0, 100% 0, 100% 100%, 0 100%)"
-                      : "polygon(26px 0, 100% 0, calc(100% - 26px) 100%, 0 100%)",
+                clipPath: "polygon(26px 0, 100% 0, calc(100% - 26px) 100%, 0 100%)",
                 marginLeft: i === 0 ? 0 : "-13px",
               }}
             >
