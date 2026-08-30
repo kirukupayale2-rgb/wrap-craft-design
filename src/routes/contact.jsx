@@ -97,6 +97,9 @@ function Contact() {
           </form>
         </div>
       </div>
-    </section>
+      </section>
+      <CTA />
+    </>
   );
 }
+
