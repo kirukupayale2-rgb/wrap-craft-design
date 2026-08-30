@@ -1,28 +1,18 @@
 import { Link } from "@tanstack/react-router";
 
-import logoAsset from "@/assets/vrap-logo.png.asset.json";
+import logoDark from "@/assets/vrap-logo-full.png.asset.json";
+import logoLight from "@/assets/vrap-logo-light.png.asset.json";
 
-export function Logo({ dark = false }) {
+export function Logo({ dark = false, className = "" }) {
   return (
-    <Link to="/" className="flex items-center gap-2.5">
+    <Link to="/" className={`inline-flex items-center ${className}`} aria-label="V'RAP home">
       <img
-        src={logoAsset.url}
-        alt="V'RAP custom packaging logo"
-        width={64}
-        height={64}
-        className="size-10 shrink-0 object-contain mix-blend-multiply"
-        style={dark ? { mixBlendMode: "normal" } : undefined}
+        src={dark ? logoLight.url : logoDark.url}
+        alt="V'RAP — Stories Worth Unboxing"
+        width={495}
+        height={478}
+        className="h-14 w-auto object-contain md:h-16"
       />
-      <span className="leading-none">
-        <span
-          className={`block text-xl font-extrabold tracking-tight ${dark ? "text-cream" : "text-ink"}`}
-        >
-          V&rsquo;RAP
-        </span>
-        <span className="mt-1 block text-[9px] font-medium tracking-[0.22em] text-primary">
-          CUSTOM PACKAGING
-        </span>
-      </span>
     </Link>
   );
 }
