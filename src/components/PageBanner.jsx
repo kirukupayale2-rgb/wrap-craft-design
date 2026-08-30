@@ -11,7 +11,7 @@ export function PageBanner({ label, title, intro, image }) {
           className="absolute inset-0 h-full w-full object-cover"
         />
       ) : null}
-      <span className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/75 to-ink/45" />
+      <span className="absolute inset-0 bg-ink/72" />
 
       <div className="relative container-page py-16 text-center md:py-20">
         <p className="text-[11px] font-semibold tracking-[0.2em] text-primary uppercase">{label}</p>
